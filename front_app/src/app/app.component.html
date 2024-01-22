@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark  "style="background-color: #3f51b5;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <i class="bi bi-bootstrap"></i> Navbar
+    </a>
+    <span class="navbar-toggler-icon"></span>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="home">
+            <i class="bi bi-house-fill"></i> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/clients">
+            <i class="bi bi-person-lines-fill"></i> Clients
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/produits">
+            <i class="bi bi-basket-fill"></i> Produits
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/ventes">
+            <i class="bi bi-cash-stack"></i> Ventes
+          </a>
+        </li>
+
+
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+
+
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+            <i class="bi bi-slash-circle"></i> Disabled
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

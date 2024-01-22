@@ -1,0 +1,186 @@
+<div class="p-3 container mt-5">
+  <div class="card">
+    <div class="card-title text-center rounded-bottom-5" style="background-color: #00008f;">
+      <h3 class="p-lg-1 fw-bolder fs-4 text-light">Produits</h3>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Marque </th>
+            <th>Type</th>
+            <th>Prix</th>
+            <th>Quantite</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of produit">
+            <td>{{ c.idP }}</td>
+            <td>{{ c.marque }}</td>
+            <td> {{ c.type }}</td>
+            <td>{{c.prix}}</td>
+            <td> {{ c.qte }}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Actions">
+                <button type="button" class="btn btn-danger ps-3 pe-3" (click)="confirmerSuppression(c.idP)">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+                <button type="button" class="btn btn-warning ms-2 shadow ps-3 pe-3" (click)="prendre(c)" data-bs-toggle="modal" data-bs-target="#updateModal">
+                  <i class="bi bi-pencil"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <button class="btn btn-success shadow-sm pe-3 ps-3" data-bs-toggle="modal" data-bs-target="#myModal">
+        <i class="bi bi-plus-square"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<<div class="modal" id="myModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-header text-center" style="background-color: #3f51b5;">
+            <h3 class="p-lg-1 fw-bolder fs-4 text-light">Ajout du Produit</h3>
+          </div>
+          <div class="card-body">
+            <hr>
+            <form (ngSubmit)="postProdui(add)" #add="ngForm">
+              <div class="mb-3">
+                <div class="row">
+                  <div class="col">
+                    <label class="form-label">Marque :</label>
+                  </div>
+                  <div class="col">
+                    <input class="form-control" [(ngModel)]="test.marque" name="marque">
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="row">
+                  <div class="col">
+                    <label class="form-label">Type :</label>
+                  </div>
+                  <div class="col">
+                    <input class="form-control" [(ngModel)]="test.type" name="type">
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="row">
+                  <div class="col">
+                    <label class="form-label">Prix :</label>
+                  </div>
+                  <div class="col">
+                    <input class="form-control" [(ngModel)]="test.prix" name="prix">
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="row">
+                  <div class="col">
+                    <label class="form-label">Quantite :</label>
+                  </div>
+                  <div class="col">
+                    <input class="form-control" [(ngModel)]="test.qte" name="qte">
+                  </div>
+                </div>
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-success">Ajouter</button>
+              </div>
+            </form>
+            <hr>
+            <div class="d-grid">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="updateModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="p-3 container">
+          <div class="card">
+            <div class="card-header text-center" style="background-color: #3f51b5;">
+              <h3 class="p-lg-1 fw-bolder fs-4 text-light">Mise à jour du Produit</h3>
+            </div>
+            <div class="card-body">
+              <h4 class="modal-title text-center fw-bold font-monospace">Modifiez vos informations</h4>
+              <hr>
+              <div class="modal-body">
+                <form (ngSubmit)="updateProduit(upd)" #upd="ngForm">
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col">
+                        <label class="form-label">Marque :</label>
+                      </div>
+                      <div class="col">
+                        <input class="form-control" [(ngModel)]="test.marque" name="marque">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col">
+                        <label class="form-label"> Type:</label>
+                      </div>
+                      <div class="col">
+                        <input class="form-control" [(ngModel)]="test.type" name="type">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col">
+                        <label class="form-label">Prix :</label>
+                      </div>
+                      <div class="col">
+                        <input class="form-control" [(ngModel)]="test.prix" name="prix">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col">
+                        <label class="form-label">Quantite :</label>
+                      </div>
+                      <div class="col">
+                        <input class="form-control" [(ngModel)]="test.qte" name="qte">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Mettre à jour</button>
+                  </div>
+                </form>
+              </div>
+              <hr>
+              <div class="d-grid">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
